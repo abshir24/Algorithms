@@ -917,4 +917,52 @@ function sumToOneDigit(num){
     return sum
 }
 
-console.log(sumToOneDigit(928))
+// console.log(sumToOneDigit(928))
+
+/* Given array and an additional value, insert this value at the beginning of the array.  Do this without using any built in array methods. */
+// [1,2,3,4,5,5]
+var insertVal = (arr, val) =>{
+    arr.push(arr[arr.length-1])
+
+    for(let i = arr.length-2; i>=0 ; i--){
+        arr[i+1] = arr[i]
+    }
+
+    arr[0] = val
+    
+    return arr
+}
+
+// console.log(insertVal([1,2,3,4,5], 100))
+
+
+/* Given array, remove and return the value at the beginning of the array.  Do this without using any built-in array methods except pop(). */
+// [1,2,3,4,5]
+
+// var popFront = (arr) =>{
+//     for(let i = 0;i<arr.length-1;i++){
+//         let temp = arr[i+1]
+//         arr[i+1] =  arr[i]
+//         arr[i] = temp
+//     }
+
+//     return arr.pop()
+// }
+
+// console.log(popFront([1,2,3,4,5])) 
+
+/* Given array, index, and additional value, insert the value into array at given index.  Do this without using built-in array methods.  You can think of pushFront(arr, val) as equivalent to insertAt(arr, 0, val). */
+// [1,2,4,5] , 3 => [1,2,3,4,5]
+
+var insertAt = (arr,ind,val) => {
+    arr.push(arr[arr.length-1])
+    for(let i = arr.length-2; i>=ind;i--){
+        arr[i+1] = arr[i]
+    }
+
+    arr[ind] = val
+    
+    return arr
+}
+
+console.log(insertAt([1,2,4,5], 2, 3))
